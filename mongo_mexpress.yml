@@ -17,18 +17,3 @@ services:
       ME_CONFIG_MONGODB_AUTH_PASSWORD: password 
       ME_CONFIG_MONGODB_SERVER: mongo
 
-version: "3.9"  # optional since v1.27.0
-services:
-  web:
-    build: .
-    ports:
-      - "5000:5000"
-    volumes:
-      - .:/code
-      - logvolume01:/var/log
-    links:
-      - redis
-  redis:
-    image: redis
-volumes:
-  logvolume01: {}
